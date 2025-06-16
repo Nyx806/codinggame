@@ -34,8 +34,4 @@ const veterinaireSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Index pour améliorer les performances des recherches
-veterinaireSchema.index({ email: 1 });
-veterinaireSchema.index({ specialite: 1 });
-
-module.exports = mongoose.model('Veterinaire', veterinaireSchema); 
+module.exports = mongoose.model('Veterinaire', veterinaireSchema);

@@ -34,8 +34,4 @@ const proprietaireSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Index pour améliorer les performances des recherches
-proprietaireSchema.index({ email: 1 });
-proprietaireSchema.index({ nom: 1, prenom: 1 });
-
-module.exports = mongoose.model('Proprietaire', proprietaireSchema); 
+module.exports = mongoose.model('Proprietaire', proprietaireSchema);

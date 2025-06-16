@@ -5,7 +5,7 @@ const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
 
-const db = require('./config/database'); // Importer la configuration de Sequelize
+const connectDB = require('./config/database');
 
 // Import des routes
 const animauxRoutes = require('./routes/animaux.routes');
@@ -55,16 +55,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Connexion à la base de données et démarrage du serveur
-db.sequelize.sync({ force: false })
-  .then(() => {
-    console.log('Base de données synchronisée.');
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-      console.log(`Serveur démarré sur le port ${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error('Erreur de connexion à la base de données:', err.message);
-    process.exit(1);
-  }); 
+// Connexion à la base de données
+connectDB();
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Serveur démarré sur le port ${PORT}`);
+});

@@ -35,10 +35,4 @@ const rendezVousSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Index pour améliorer les performances des recherches
-rendezVousSchema.index({ date: 1 });
-rendezVousSchema.index({ animal: 1 });
-rendezVousSchema.index({ veterinaire: 1 });
-rendezVousSchema.index({ statut: 1 });
-
-module.exports = mongoose.model('RendezVous', rendezVousSchema); 
+module.exports = mongoose.model('RendezVous', rendezVousSchema);

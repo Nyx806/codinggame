@@ -30,8 +30,4 @@ const animalSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Index pour améliorer les performances des recherches
-animalSchema.index({ nom: 1, espece: 1 });
-animalSchema.index({ proprietaire: 1 });
-
-module.exports = mongoose.model('Animal', animalSchema); 
+module.exports = mongoose.model('Animal', animalSchema);
